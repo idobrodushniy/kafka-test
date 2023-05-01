@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "kafka-test"
+version = "0.1.0"
+description = ""
+authors = ["idobrodushniy"]
+readme = "README.md"
+packages = [{include = "kafka_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+faust = "^1.10.4"
+requests = "^2.29.0"
+neovim = "^0.3.1"
+robyn = "^0.28.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+include = ["./"]
+exclude = ["**/node_modules",
+    "**/__pycache__",
+    "src/experimental",
+    "src/typestubs"
+]
+ignore = ["src/oldstuff"]
+defineConstant = { DEBUG = true }
+venvPath = '/Users/idobrodushniy/.pyenv/versions/3.11.3/envs/'
+venv = 'kafka-test'
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+
+[tool.pyright.config]
+useLanguageServer = true
